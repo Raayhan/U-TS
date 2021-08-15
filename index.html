@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Titlebar Icon -->
+  <link rel="icon" href="img/icon.png" type="image/x-icon" />
+  <!-- Css Files -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- JavaScript Files -->
+  <script src="js/script.js"></script>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/753fbd11bf.js" crossorigin="anonymous"></script>
+
+  <title>Welcome | UTS</title>
+</head>
+
+<body>
+  <!-- Header Start -->
+  <header class="site-header">
+    <div class="wrapper site-header__wrapper">
+      <div class="site-header__start">
+        <a href="index.html" class="brand"><i class="fab fa-accusoft"></i> University Tuition Service</a>
+      </div>
+      <div class="site-header__middle">
+        <nav class="nav">
+          <div class="nav__toggle" aria-expanded="false" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+          <ul class="nav__wrapper">
+            <li class="nav__item"><a href="index.html">Home</a></li>
+            <li class="nav__item"><a href="#">About</a></li>
+            <li class="nav__item"><a href="#">Services</a></li>
+            <li class="nav__item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-header__end">
+        <a href="admin/login.html">Admin Panel</a>
+      </div>
+    </div>
+  </header>
+  <!-- Header End -->
+  <div class="container">
+    <h1 class="text-center pt-5"><i class="fab fa-accusoft"></i></h1>
+    <h1 class="text-center">Welcome</h1>
+    <h6 class="lead pt-5">
+      University Tuition Service is a platform for University Students to find suitable tutors for the
+      courses which they find difficulties.It's also a platform for students
+      who want to earn some money by giving tuitions to other students.
+    </h6>
+    <div id="outer">
+      <div class="inner">
+        <label class="dropdown">
+
+          <div class="dd-button Red">
+            Login
+          </div>
+
+          <input type="checkbox" class="dd-input" id="test">
+
+          <ul class="dd-menu">
+            <li><a href="student/login.php">As Student</a></li>
+            <hr>
+            <li><a href="teacher/login.php">As Teacher</a></li>
+          </ul>
+
+        </label>
+      </div>
+      <div class="inner">
+        <label class="dropdown">
+
+          <div class="dd-button Blue">
+            Register
+          </div>
+
+          <input type="checkbox" class="dd-input" id="test">
+
+          <ul class="dd-menu">
+            <li><a href="student/register.php">As Student</a></li>
+            <hr>
+            <li><a href="teacher/register.php">As Teacher</a></li>
+          </ul>
+
+        </label>
+      </div>
+
+    </div>
+  </div>
+  <!-- Welcome Page Start -->
+
+  <!-- Welcome Page End -->
+  <div class="footer">
+    <div class="row">
+      <div class="column">
+        <h4><i class="fab fa-accusoft"></i> University Tuition Service</h4>
+        <p class="small">All right reserved ©</p>
+
+      </div>
+      <div class="column">
+        <h4>Links</h4>
+        <div class="small">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/header.js"></script>
+</body>
+
+</html>
