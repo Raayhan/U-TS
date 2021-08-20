@@ -1,3 +1,8 @@
+<?php
+
+include('../controllers/AdminLogin.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +39,7 @@
                         <div class="bar3"></div>
                     </div>
                     <ul class="nav__wrapper">
-                        <li class="nav__item"><a href="#">Home</a></li>
+                        <li class="nav__item"><a href="/">Home</a></li>
                         <li class="nav__item"><a href="#">About</a></li>
                         <li class="nav__item"><a href="#">Services</a></li>
                         <li class="nav__item"><a href="#">Contact</a></li>
@@ -42,7 +47,7 @@
                 </nav>
             </div>
             <div class="site-header__end">
-                <a href="#">Sign in</a>
+                <a href="login.php">Sign in</a>
             </div>
         </div>
     </header>
@@ -52,12 +57,19 @@
         <h2 class="text-center">Admin Login</h2><br>
 
         <div class="form-section">
-            <form action="" method="post">
+        <br>
+          <?php if (isset($_SESSION['error'])) {
+           echo '
+                                            <h6 class="alert-message-danger" id="error">' . $_SESSION['error'] . '</h6>';
+           unset($_SESSION['error']);
+             }
+          ?>
+            <form action="../controllers/AdminLogin.php" method="post">
                 <label for="email">Email</label>
                 <input type="email" name="email" placeholder=" Enter Email" required autofocus>
                 <label for="password">Password</label>
                 <input type="password" name="password" placeholder=" Enter Password" required>
-                <input type="submit" value="Login" class="RegisterButton">
+                <input type="submit" name="login_btn"  value="Login" class="RegisterButton">
             </form>
         </div>
     </div>

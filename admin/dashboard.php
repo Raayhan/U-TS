@@ -1,3 +1,16 @@
+<?php
+require('../database/connect.php');
+include('../controllers/AdminLogin.php');
+
+if (!isset($_SESSION['admin'])) {
+    // not logged in
+    $_SESSION["error"] = 'You must login first !';
+    header('Location: login.php');
+    exit();
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +55,7 @@
                 </nav>
             </div>
             <div class="site-header__end">
-                <a href="#">Sign out</a>
+                <a href="../controllers/AdminSignout.php">Sign out</a>
             </div>
         </div>
     </header>
@@ -56,7 +69,13 @@
                     <div class="box">
                         <h1 class="text-center pt-3"><i class="fas fa-user-graduate"></i></h1>
                         <p class="text-center">Active Students</p>
-                        <h1 class="text-center text-blue">124</h1>
+                        <h1 class="text-center text-blue"><?php
+                                                            $result = mysqli_query($conn, "SELECT id FROM students");
+                                                            $num_rows = mysqli_num_rows($result);
+
+                                                            echo "$num_rows";
+
+                                                            ?></h1>
                         <p class="text-center small text-blue">Manage Students</p>
                     </div>
                 </a>
@@ -68,7 +87,13 @@
                     <div class="box">
                         <h1 class="text-center pt-3"><i class="fas fa-chalkboard-teacher"></i></h1>
                         <p class="text-center">Active Teachers</p>
-                        <h1 class="text-center text-blue">78</h1>
+                        <h1 class="text-center text-blue"><?php
+                                                            $result = mysqli_query($conn, "SELECT id FROM teachers");
+                                                            $num_rows = mysqli_num_rows($result);
+
+                                                            echo "$num_rows";
+
+                                                            ?></h1>
                         <p class="text-center small text-blue">Manage Teachers</p>
                     </div>
                 </a>
@@ -82,7 +107,13 @@
                     <div class="box">
                         <h1 class="text-center pt-3"><i class="fas fa-book-reader"></i></h1>
                         <p class="text-center">Active Tuitions</p>
-                        <h1 class="text-center text-blue">96</h1>
+                        <h1 class="text-center text-blue"><?php
+                                                            $result = mysqli_query($conn, "SELECT id FROM student_courses ");
+                                                            $num_rows = mysqli_num_rows($result);
+
+                                                            echo "$num_rows";
+
+                                                            ?></h1>
                         <p class="text-center small text-blue">Manage Tuitions</p>
                     </div>
                 </a>
@@ -93,8 +124,14 @@
                 <a href="">
                     <div class="box">
                         <h1 class="text-center pt-3"><i class="fas fa-book"></i></h1>
-                        <p class="text-center">Active Courses</p>
-                        <h1 class="text-center text-blue">23</h1>
+                        <p class="text-center">Course Requests</p>
+                        <h1 class="text-center text-blue"><?php
+                                                            $result = mysqli_query($conn, "SELECT id FROM course_requests");
+                                                            $num_rows = mysqli_num_rows($result);
+
+                                                            echo "$num_rows";
+
+                                                            ?></h1>
                         <p class="text-center small text-blue">Manage Courses</p>
                     </div>
                 </a>
