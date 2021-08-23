@@ -14,12 +14,12 @@ $id          = "";
 $errors      = array();
 
 // call the register() function if register_btn is clicked
-if (isset($_POST['change_btn'])) {
+if (isset($_POST['change_pass'])) {
 	change();
-}
+
 
     
-
+}
 
 
 function change(){
@@ -32,7 +32,7 @@ function change(){
     
     $id           = $_POST["id"];
     $password     = $_POST["password"];
-    $newPassword  = $_POST["newPassword"];
+    $newPassword  = $_POST["NewPassword"];
 
     if (isset($_SESSION['student'])){
 
@@ -46,7 +46,7 @@ function change(){
         
         //if not display error message
         $_SESSION["error"]='Invalid Password <i class="fas fa-times-circle"></i>';
-        header('location:../../pages/settings.php');
+        header('location:../student/password.php');
         
         }
         else{
@@ -58,12 +58,12 @@ function change(){
     if (mysqli_query($conn, $query)) {
       
       
-      $_SESSION["error"]="Password Changed Successfully <i class='fas fa-check-circle'></i>";
-			header('location: ../pages/settings.php');
+      $_SESSION["status"]="Password Changed Successfully <i class='fas fa-check-circle'></i>";
+			header('location:../student/password.php');
       }
     else {
       $_SESSION["error"]="Failed to Change Password <i class='fas fa-times-circle'></i>";
-			header('location: ../pages/settings.php');
+			header('location:../student/password.php');
       }
 
 
@@ -86,7 +86,7 @@ if (isset($_SESSION['teacher'])){
     
     //if not display error message
     $_SESSION["error"]='Invalid Password <i class="fas fa-times-circle"></i>';
-    header('location:../../pages/settings.php');
+    header('location: ../teacher/password.php');
     
     }
     else{
@@ -98,12 +98,12 @@ if (isset($_SESSION['teacher'])){
 if (mysqli_query($conn, $query)) {
   
   
-  $_SESSION["error"]="Password Changed Successfully <i class='fas fa-check-circle'></i>";
-        header('location: ../pages/settings.php');
+  $_SESSION["status"]="Password Changed Successfully <i class='fas fa-check-circle'></i>";
+        header('location: ../teacher/password.php');
   }
 else {
   $_SESSION["error"]="Failed to Change Password <i class='fas fa-times-circle'></i>";
-        header('location: ../pages/settings.php');
+        header('location: ../teacher/password.php');
   }
 
 

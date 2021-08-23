@@ -1,3 +1,18 @@
+<?php
+require('../database/connect.php');
+include('../controllers/AddTeacher.php');
+
+if (!isset($_SESSION['teacher'])) {
+    // not logged in
+    $_SESSION["error"] = 'You must login first !';
+    header('Location: login.php');
+    exit();
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,17 +21,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Titlebar Icon -->
-    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <link rel="icon" href="../img/icon.png" type="image/x-icon" />
     <!-- Css Files -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <!-- JavaScript Files -->
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/753fbd11bf.js" crossorigin="anonymous"></script>
 
-    <title>Contact | UTS</title>
+    <title>Change Password | UTS</title>
 </head>
 
 <body>
@@ -34,33 +49,44 @@
                         <div class="bar3"></div>
                     </div>
                     <ul class="nav__wrapper">
-                        <li class="nav__item"><a href="#">Home</a></li>
-                        <li class="nav__item"><a href="#">About</a></li>
-                        <li class="nav__item"><a href="#">Services</a></li>
-                        <li class="nav__item"><a href="#">Contact</a></li>
+                        <li class="nav__item"><a href="dashboard.php">Dashboard</a></li>
+                        <li class="nav__item"><a href="tuitions.php">Tuitions</a></li>
+                        <li class="nav__item"><a href="profile.php">Profile</a></li>
+                        <li class="nav__item"><a href="../contact.html">Contact</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="site-header__end">
-                <a href="login.html">Go Back</a>
+                <a href="../controllers/TeacherSignout.php">Sign out</a>
             </div>
         </div>
     </header>
     <!-- Header End -->
     <div class="registration-container">
-        <h1 class="text-center pt-5"><i class="fab fa-accusoft"></i></h1>
-        <h2 class="text-center">Contact Form</h2><br>
+        <h1 class="text-center pt-5 mb-2"><i class="fas fa-user-edit"></i></h1>
+        <h2 class="text-center">Change Password</h2><br>
 
         <div class="form-section">
-            <form action="" method="post">
-                <label for="name">Name</label>
-                <input type="text" name="name" placeholder=" Your Name" required autofocus>
-                <label for="email">Email</label>
-                <input type="email" name="email" placeholder=" Your Email" required>
-                <label for="message">Message</label>
-                <textarea rows="8" cols="50" name="message" placeholder=" Type your message..." required></textarea>
-
-                <input type="submit" value="Send Message" class="RegisterButton">
+        <br>
+    <?php if (isset($_SESSION['error'])) {
+        echo '
+                                            <h6 class="alert-message-danger" id="error">' . $_SESSION['error'] . '</h6>';
+        unset($_SESSION['error']);
+    }
+    ?>
+    <?php if (isset($_SESSION['status'])) {
+        echo '
+                                            <h6 class="alert-message-success" id="status">' . $_SESSION['status'] . '</h6>';
+        unset($_SESSION['status']);
+    }
+    ?>
+            <form action="../controllers/ChangePassword.php" method="post">
+                <label for="NewPassword">Enter new password</label>
+                <input type="password" name="NewPassword" placeholder=" Enter New Password" required>
+                <label class="text-red" for="password">Enter current password to update</label>
+                <input type="password" name="password" placeholder=" Enter Current Password" required>
+                <input type="hidden" name="id" value="<?php echo $_SESSION['teacher']['id'];?>">
+                <input type="submit" name="change_pass" value="Update" class="RegisterButton">
             </form>
         </div>
 
@@ -89,7 +115,7 @@
             </div>
         </div>
     </div>
-    <script src="js/header.js"></script>
+    <script src="../js/header.js"></script>
 </body>
 
 </html>

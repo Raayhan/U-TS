@@ -1,3 +1,18 @@
+<?php
+require('../database/connect.php');
+include('../controllers/AddStudent.php');
+
+if (!isset($_SESSION['student'])) {
+    // not logged in
+    $_SESSION["error"] = 'You must login first !';
+    header('Location: login.php');
+    exit();
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,30 +49,44 @@
                         <div class="bar3"></div>
                     </div>
                     <ul class="nav__wrapper">
-                        <li class="nav__item"><a href="dashboard.html">Dashboard</a></li>
-                        <li class="nav__item"><a href="tuitions.html">Tuitions</a></li>
-                        <li class="nav__item"><a href="profile.html">Profile</a></li>
+                        <li class="nav__item"><a href="dashboard.php">Dashboard</a></li>
+                        <li class="nav__item"><a href="tuitions.php">Tuitions</a></li>
+                        <li class="nav__item"><a href="profile.php">Profile</a></li>
                         <li class="nav__item"><a href="../contact.html">Contact</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="site-header__end">
-                <a href="login.html">Sign out</a>
+                <a href="../controllers/StudentSignout.php">Sign out</a>
             </div>
         </div>
     </header>
     <!-- Header End -->
     <div class="registration-container">
         <h1 class="text-center pt-5 mb-2"><i class="fas fa-user-edit"></i></h1>
-        <h2 class="text-center">change Password</h2><br>
+        <h2 class="text-center">Change Password</h2><br>
 
         <div class="form-section">
-            <form action="" method="post">
-                <label for="password">Enter new password</label>
+        <br>
+    <?php if (isset($_SESSION['error'])) {
+        echo '
+                                            <h6 class="alert-message-danger" id="error">' . $_SESSION['error'] . '</h6>';
+        unset($_SESSION['error']);
+    }
+    ?>
+    <?php if (isset($_SESSION['status'])) {
+        echo '
+                                            <h6 class="alert-message-success" id="status">' . $_SESSION['status'] . '</h6>';
+        unset($_SESSION['status']);
+    }
+    ?>
+            <form action="../controllers/ChangePassword.php" method="post">
+                <label for="NewPassword">Enter new password</label>
                 <input type="password" name="NewPassword" placeholder=" Enter New Password" required>
                 <label class="text-red" for="password">Enter current password to update</label>
                 <input type="password" name="password" placeholder=" Enter Current Password" required>
-                <input type="submit" value="Update" class="RegisterButton">
+                <input type="hidden" name="id" value="<?php echo $_SESSION['student']['id'];?>">
+                <input type="submit" name="change_pass" value="Update" class="RegisterButton">
             </form>
         </div>
 
