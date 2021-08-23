@@ -112,14 +112,14 @@ if (!isset($_SESSION['teacher'])) {
 
                 echo                   '<form action="../controllers/AddCourse.php" method="POST">';
 
-                echo                     '<input type="hidden" name="course_name" value= ' . $row['course_name'] . '>';
+                echo                     '<input type="hidden" name="course_name" value= "' . $row['course_name'] . '">';
                 echo                     '<input type="hidden" name="student_name" value="' . $row['student_name'] . '">';
                 echo                     '<input type="hidden" name="teacher_name" value="' .  $_SESSION['teacher']['name'] . '">';
-                echo                     '<input type="hidden" name="teacher_id" value= ' . $_SESSION['teacher']['nsu_id'] . '>';
-                echo                     '<input type="hidden" name="student_id" value= ' . $row['student_id'] . '/>';
-                echo                     '<input type="hidden" name="teacher_email" value= ' . $_SESSION['teacher']['email'] . '>';
-                echo                     '<input type="hidden" name="teacher_phone" value= ' . $_SESSION['teacher']['phone'] . '>';
-                echo                     '<input type="hidden" name="teacher_department" value= ' . $_SESSION['teacher']['department'] . '>';
+                echo                     '<input type="hidden" name="teacher_id" value= "' . $_SESSION['teacher']['nsu_id'] . '">';
+                echo                     '<input type="hidden" name="student_id" value= "' . $row['student_id'] . '">';
+                echo                     '<input type="hidden" name="teacher_email" value= "' . $_SESSION['teacher']['email'] . '">';
+                echo                     '<input type="hidden" name="teacher_phone" value= "' . $_SESSION['teacher']['phone'] . '">';
+                echo                     '<input type="hidden" name="teacher_department" value= "' . $_SESSION['teacher']['department'] . '">';
 
 
 

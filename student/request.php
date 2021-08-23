@@ -865,9 +865,9 @@ if (!isset($_SESSION['student'])) {
                     <option value="WMS201">WMS201</option>
                 </select>
                 <input type="hidden" name="student_name" value="<?php echo $_SESSION['student']['name'] ?>">
-                <input type="hidden" name="student_email" value=<?php echo $_SESSION['student']['email'] ?>>
-                <input type="hidden" name="student_phone" value=<?php echo $_SESSION['student']['phone'] ?>>
-                <input type="hidden" name="student_id" value=<?php echo $_SESSION['student']['nsu_id'] ?>>
+                <input type="hidden" name="student_email" value="<?php echo $_SESSION['student']['email'] ?>">
+                <input type="hidden" name="student_phone" value="<?php echo $_SESSION['student']['phone'] ?>">
+                <input type="hidden" name="student_id" value="<?php echo $_SESSION['student']['nsu_id'] ?>">
 
                 <div style="text-align:center;">
                     <input type="submit" value="Submit" name="Add_btn" class="Add_btn">

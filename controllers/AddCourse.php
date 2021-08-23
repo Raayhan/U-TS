@@ -29,13 +29,13 @@ function add()
 	global $conn, $errors, $course_name, $teacher_name, $teacher_id, $student_id, $teacher_department, $teacher_email, $teacher_phone;
 
 
-	$course_name     = $_POST["course_name"];
-	$student_name    = $_POST["student_name"];
-	$teacher_name    = $_POST["teacher_name"];
-	$teacher_id      = $_POST["teacher_id"];
-	$student_id      = $_POST["student_id"];
-	$teacher_email   = $_POST["teacher_email"];
-	$teacher_phone   = $_POST["teacher_phone"];
+	$course_name     	= $_POST["course_name"];
+	$student_name    	= $_POST["student_name"];
+	$teacher_name    	= $_POST["teacher_name"];
+	$teacher_id      	= $_POST["teacher_id"];
+	$student_id      	= $_POST["student_id"];
+	$teacher_email   	= $_POST["teacher_email"];
+	$teacher_phone   	= $_POST["teacher_phone"];
 	$teacher_department = $_POST["teacher_department"];
 
 

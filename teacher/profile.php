@@ -148,14 +148,7 @@ if (!isset($_SESSION['teacher'])) {
                     while ($row = $result->fetch_assoc()) {
                         echo '<div class="d-flex w-100 justify-content-between">';
                         echo '<h5 class="mb-2 h5">' . $row['course_name'] . "</h5>";
-                        echo '<small>';
-                        echo '<form action="../controllers/DeleteCourse.php" method="POST">';
-
-                        echo '<input type="hidden" name="course_id" value= ' . $row['id'] . '>';
-                        echo '<input type="hidden" name="course_name" value= ' . $row['course_name'] . '>';
-                        echo '<button type="submit" name="DeleteCourse_btn" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-                        echo '</form>';
-                        echo '</small>';
+                     
                         echo "</div>";
 
                         echo '<div class="mb-2">';
